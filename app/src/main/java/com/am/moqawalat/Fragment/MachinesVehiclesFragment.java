@@ -26,6 +26,31 @@ public class MachinesVehiclesFragment extends Fragment {
     private RecyclerView myrecyclerView;
     private ArrayList<MachAndVehichAds> lstAds;
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        lstAds = new ArrayList<>();
+        lstAds.add(new MachAndVehichAds("Mohsen", "0599746197", "13.12.11", R.drawable.main_image, 1));
+        lstAds.add(new MachAndVehichAds("Ali", "0599746197", "13.12.11", R.drawable.image_shop_11, 0));
+        lstAds.add(new MachAndVehichAds("Mohsen", "0599746197", "13.12.11", R.drawable.image_shop_9, 0));
+        lstAds.add(new MachAndVehichAds("M", "0599746197", "13.12.11", R.drawable.image_shop_9, 0));
+        lstAds.add(new MachAndVehichAds("A", "0599746197", "13.12.11", R.drawable.image_shop_10, 0));
+        lstAds.add(new MachAndVehichAds("C", "0599746197", "13.12.11", R.drawable.image_shop_12, 0));
+        lstAds.add(new MachAndVehichAds("image_shop_13", "0599746197", "13.12.11", R.drawable.main_image, 1));
+        lstAds.add(new MachAndVehichAds("Mohsen", "0599746197", "13.12.11", R.drawable.image_2, 0));
+        lstAds.add(new MachAndVehichAds("D", "0599746197", "13.12.11", R.drawable.main_image, 1));
+        lstAds.add(new MachAndVehichAds("MWohsen", "0599746197", "13.12.11", R.drawable.ic_star, 0));
+        lstAds.add(new MachAndVehichAds("G", "0599746197", "13.12.11", R.drawable.instagram, 0));
+        lstAds.add(new MachAndVehichAds("BBB", "0599746197", "13.12.11", R.drawable.image_shop_13, 0));
+        lstAds.add(new MachAndVehichAds("wwww", "0599746197", "13.12.11", R.drawable.main_image, 1));
+        lstAds.add(new MachAndVehichAds("mmmmm", "0599746197", "13.12.11", R.drawable.image_shop_10, 0));
+        lstAds.add(new MachAndVehichAds("kkkk", "0599746197", "13.12.11", R.drawable.image_shop_13, 0));
+        lstAds.add(new MachAndVehichAds("mmmmmm", "0599746197", "13.12.11", R.drawable.main_image, 1));
+
+    }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -38,32 +63,8 @@ public class MachinesVehiclesFragment extends Fragment {
         MachinesRVAdapter machinesRVAdapter = new MachinesRVAdapter(getContext(), lstAds);
         machinesRVAdapter.setOnItemClickListener((view, obj, position) -> startActivity(new Intent(getContext(), Ads_detail.class)));
         myrecyclerView.setAdapter(machinesRVAdapter);
-
         return v;
-
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-        lstAds = new ArrayList<>();
-        lstAds.add(new MachAndVehichAds("Mohsen", "0599746197", "13.12.11", R.drawable.main_image));
-        lstAds.add(new MachAndVehichAds("Ali", "0599746197", "13.12.11", R.drawable.image_shop_11));
-        lstAds.add(new MachAndVehichAds("Mohsen", "0599746197", "13.12.11", R.drawable.image_shop_9));
-        lstAds.add(new MachAndVehichAds("M", "0599746197", "13.12.11", R.drawable.image_shop_9));
-        lstAds.add(new MachAndVehichAds("A", "0599746197", "13.12.11", R.drawable.image_shop_10));
-        lstAds.add(new MachAndVehichAds("C", "0599746197", "13.12.11", R.drawable.image_shop_12));
-        lstAds.add(new MachAndVehichAds("image_shop_13", "0599746197", "13.12.11", R.drawable.main_image));
-        lstAds.add(new MachAndVehichAds("Mohsen", "0599746197", "13.12.11", R.drawable.image_2));
-        lstAds.add(new MachAndVehichAds("D", "0599746197", "13.12.11", R.drawable.main_image));
-        lstAds.add(new MachAndVehichAds("MWohsen", "0599746197", "13.12.11", R.drawable.ic_star));
-        lstAds.add(new MachAndVehichAds("G", "0599746197", "13.12.11", R.drawable.instagram));
-        lstAds.add(new MachAndVehichAds("BBB", "0599746197", "13.12.11", R.drawable.image_shop_13));
-        lstAds.add(new MachAndVehichAds("wwww", "0599746197", "13.12.11", R.drawable.main_image));
-        lstAds.add(new MachAndVehichAds("mmmmm", "0599746197", "13.12.11", R.drawable.image_shop_10));
-        lstAds.add(new MachAndVehichAds("kkkk", "0599746197", "13.12.11", R.drawable.image_shop_13));
-        lstAds.add(new MachAndVehichAds("mmmmmm", "0599746197", "13.12.11", R.drawable.main_image));
-
-    }
 }

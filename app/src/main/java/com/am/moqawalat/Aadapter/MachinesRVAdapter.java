@@ -22,53 +22,9 @@ public class MachinesRVAdapter extends RecyclerView.Adapter {
     ArrayList<MachAndVehichAds> mData;
     int total_types;
 
-    public static class FreeMachVH extends RecyclerView.ViewHolder {
-        private TextView tvName;
-        private TextView tv_phone;
-        private TextView tv_date;
-
-        private TextView tv_salary;
-
-        private ImageView iv_photo;
-        private View lyt_parent;
 
 
-        public FreeMachVH(View itemView) {
-            super(itemView);
-            tvName = itemView.findViewById(R.id.Free_adv_name_id);
-            tv_phone = itemView.findViewById(R.id.Free_adv_owner_phone_id);
-            tv_date = itemView.findViewById(R.id.Free_adv_date_id);
-            tv_salary = itemView.findViewById(R.id.Free_adv_cost_id);
-            iv_photo = itemView.findViewById(R.id.Free_adv_img_id);
-            lyt_parent = itemView.findViewById(R.id.lyt_parent);
 
-        }
-
-    }
-
-    public static class PinnedMachVH extends RecyclerView.ViewHolder {
-        private TextView tvName;
-        private TextView tv_phone;
-        private TextView tv_date;
-
-        private TextView tv_salary;
-
-        private ImageView iv_photo;
-        private View lyt_parent;
-
-
-        public PinnedMachVH(View itemView) {
-            super(itemView);
-            tvName = itemView.findViewById(R.id.pinned_adv_name_id);
-            tv_phone = itemView.findViewById(R.id.pinned_adv_owner_phone_id);
-            tv_date = itemView.findViewById(R.id.pinned_adv_date_id);
-            tv_salary = itemView.findViewById(R.id.pinned_adv_cost_id);
-            iv_photo = itemView.findViewById(R.id.pinned_adv_img_id);
-            lyt_parent = itemView.findViewById(R.id.lyt_parent);
-
-        }
-
-    }
 
     private OnItemClickListener onItemClickListener;
 
@@ -99,13 +55,13 @@ public class MachinesRVAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NotNull final RecyclerView.ViewHolder holder, final int position) {
         MachAndVehichAds object = mData.get(position);
         if (object != null) {
-            switch (object.type) {
+            switch (object.getType()) {
                 case MachAndVehichAds.FREE_TYPE:
                     ((FreeMachVH) holder).iv_photo.setImageResource(object.getAdvPhoto());
                     ((FreeMachVH) holder).tv_date.setText(object.getAdvDate());
                     ((FreeMachVH) holder).tv_phone.setText(object.getAdvPhone());
                     ((FreeMachVH) holder).tvName.setText(object.getAdvName());
-//                    ((FreeMachVH) holder).tv_salary.setText(object.getAdvSalary());
+                    ((FreeMachVH) holder).tv_salary.setText(object.getAdvSalary() + "$");
                     break;
 
                 case MachAndVehichAds.PINNED_TYPE:
@@ -113,7 +69,7 @@ public class MachinesRVAdapter extends RecyclerView.Adapter {
                     ((PinnedMachVH) holder).tv_date.setText(object.getAdvDate());
                     ((PinnedMachVH) holder).tv_phone.setText(object.getAdvPhone());
                     ((PinnedMachVH) holder).tvName.setText(object.getAdvName());
-//                    ((PinnedMachVH) holder).tv_salary.setText(object.getAdvSalary());
+                    ((PinnedMachVH) holder).tv_salary.setText(object.getAdvSalary()+ "$");
                     break;
             }
         }
@@ -134,7 +90,7 @@ public class MachinesRVAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        switch (mData.get(position).type) {
+        switch (mData.get(position).getType()) {
             case 0:
                 return MachAndVehichAds.FREE_TYPE;
             case 1:
@@ -144,6 +100,48 @@ public class MachinesRVAdapter extends RecyclerView.Adapter {
         }
 
     }
+    public static class PinnedMachVH extends RecyclerView.ViewHolder {
+        private TextView tvName;
+        private TextView tv_phone;
+        private TextView tv_date;
+
+        private TextView tv_salary;
+
+        private ImageView iv_photo;
+        private View lyt_parent;
 
 
+        public PinnedMachVH(View itemView) {
+            super(itemView);
+            tvName = itemView.findViewById(R.id.pinned_adv_name_id);
+            tv_phone = itemView.findViewById(R.id.pinned_adv_owner_phone_id);
+            tv_date = itemView.findViewById(R.id.pinned_adv_date_id);
+            tv_salary = itemView.findViewById(R.id.pinned_adv_cost_id);
+            iv_photo = itemView.findViewById(R.id.pinned_adv_img_id);
+            lyt_parent = itemView.findViewById(R.id.lyt_parent);
+
+        }
+
+    }
+    public static class FreeMachVH extends RecyclerView.ViewHolder {
+        private TextView tvName;
+        private TextView tv_phone;
+        private TextView tv_date;
+        private TextView tv_salary;
+        private ImageView iv_photo;
+        private View lyt_parent;
+
+
+        public FreeMachVH(View itemView) {
+            super(itemView);
+            tvName = itemView.findViewById(R.id.Free_adv_name_id);
+            tv_phone = itemView.findViewById(R.id.Free_adv_owner_phone_id);
+            tv_date = itemView.findViewById(R.id.Free_adv_date_id);
+            tv_salary = itemView.findViewById(R.id.Free_adv_cost_id);
+            iv_photo = itemView.findViewById(R.id.Free_adv_img_id);
+            lyt_parent = itemView.findViewById(R.id.lyt_parent);
+
+        }
+
+    }
 }

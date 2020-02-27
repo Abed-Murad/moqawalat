@@ -249,11 +249,12 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/spc_adv_detail_rv"
+            tools:listitem="@layout/item_spc_ad_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scrollingCache="true"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:ignore="MissingConstraints" />
+             />
 
     </LinearLayout>
 

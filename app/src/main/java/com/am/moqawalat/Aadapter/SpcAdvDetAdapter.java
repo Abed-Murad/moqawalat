@@ -25,6 +25,33 @@ public class SpcAdvDetAdapter extends RecyclerView.Adapter<SpcAdvDetAdapter.SpcA
         this.mData = mData;
     }
 
+    @Override
+    public SpcAdvVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v;
+        v = LayoutInflater.from(mContext).inflate(R.layout.item_spc_ad_detail, parent, false);
+        SpcAdvVH vHolder = new SpcAdvVH(v);
+        vHolder.itemView.setOnClickListener(v1 -> {
+            Toast.makeText(mContext, "" + vHolder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
+        });
+        return vHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull SpcAdvVH holder, int position) {
+        holder.tv_phone.setText(mData.get(position).getAdvName());
+        holder.tv_date.setText(mData.get(position).getAdvName());
+        holder.iv_photo.setImageResource(mData.get(position).getAdvPhoto());
+        holder.tvName.setText(mData.get(position).getAdvName());
+        holder.tv_place.setText(mData.get(position).getAdvPlace());
+
+    }
+
+
+    @Override
+    public int getItemCount() {
+        return mData.size();
+    }
+
     public class SpcAdvVH extends RecyclerView.ViewHolder {
         private TextView tvName;
         private TextView tv_phone;
@@ -43,33 +70,4 @@ public class SpcAdvDetAdapter extends RecyclerView.Adapter<SpcAdvDetAdapter.SpcA
             lyt_parent = itemView.findViewById(R.id.lyt_parent);
         }
     }
-
-
-    @Override
-    public SpcAdvVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v;
-        v = LayoutInflater.from(mContext).inflate(R.layout.item_spc_ad_detail, parent, false);
-        SpcAdvVH vHolder = new SpcAdvVH(v);
-        vHolder.itemView.setOnClickListener(v1 -> {
-            Toast.makeText(mContext, "" + vHolder.getAdapterPosition(), Toast.LENGTH_SHORT).show();
-        });
-        return vHolder;
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull SpcAdvVH holder, int position) {
-        holder.tv_phone.setText(mData.get(position).getAdvPhone());
-        holder.tv_date.setText(mData.get(position).getAdvDate());
-        holder.iv_photo.setImageResource(mData.get(position).getAdvPhoto());
-        holder.tvName.setText(mData.get(position).getAdvName());
-        holder.tv_place.setText(mData.get(position).getAdvPlace());
-
-    }
-
-
-    @Override
-    public int getItemCount() {
-        return mData.size();
-    }
-
 }

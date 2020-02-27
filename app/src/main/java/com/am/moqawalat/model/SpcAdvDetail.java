@@ -8,9 +8,7 @@ public class SpcAdvDetail {
     private String AdvPlace;
     private int AdvPhoto;
 
-    public SpcAdvDetail(String s, String mohsen, String advName, String advDate, String romania, int main_image) {
 
-    }
 
     public SpcAdvDetail(int id, String advPhone, String advName, String advDate, String advPlace, int advPhoto) {
         this.id = id;

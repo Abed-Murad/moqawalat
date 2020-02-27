@@ -5,18 +5,19 @@ public class MachAndVehichAds {
     private String AdvPhone;
     private String AdvDate;
     private int AdvPhoto;
-    private int AdvSalary;
+    private int AdvSalary = 23; //TODO: MOVE IT TO THE FUCKING CONSTRUCTOR BITCH !
     public static final int FREE_TYPE = 0;
     public static final int PINNED_TYPE = 1;
-    public int type;
+    private int type;
     public int data;
     public String text;
 
-    public MachAndVehichAds(String advName, String advPhone, String advDate, int advPhoto) {
+    public MachAndVehichAds(String advName, String advPhone, String advDate, int advPhoto, int type) {
         AdvName = advName;
         AdvPhone = advPhone;
         AdvDate = advDate;
         AdvPhoto = advPhoto;
+        this.type = type;
 
     }
 
@@ -40,6 +41,13 @@ public class MachAndVehichAds {
         return AdvSalary;
     }
 
+    public int getType() {
+        return type;
+    }
+
+    public void setType(final int type) {
+        this.type = type;
+    }
 
     public void setAdvName(String advName) {
         AdvName = advName;
