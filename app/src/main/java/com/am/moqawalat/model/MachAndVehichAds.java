@@ -12,6 +12,7 @@ public class MachAndVehichAds {
     public int data;
     public String text;
 
+
     public MachAndVehichAds(String advName, String advPhone, String advDate, int advPhoto, int type) {
         AdvName = advName;
         AdvPhone = advPhone;
